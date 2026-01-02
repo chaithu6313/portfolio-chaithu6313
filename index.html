@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gudati Chaitanya Reddy | Portfolio</title>
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+<style>
+:root { --primary:#A020F0; }
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{background:#0a0a0f;color:#ddd;overflow-x:hidden}
+
+/* Scroll bar */
+#progress{
+  position:fixed;top:0;left:0;height:4px;
+  background:var(--primary);width:0%;z-index:9999;
+  box-shadow:0 0 10px var(--primary);
+}
+
+/* Header */
+header{
+  display:flex;justify-content:space-between;
+  padding:20px 40px;background:#111;
+  position:sticky;top:0;z-index:100;
+}
+header a{color:#ccc;margin-left:20px;text-decoration:none}
+header a:hover{color:var(--primary)}
+.logo{color:var(--primary);font-weight:bold}
+
+/* Hero */
+.hero{
+  height:90vh;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;text-align:center
+}
+.hero span{color:var(--primary)}
+.btn{
+  margin-top:20px;padding:12px 28px;
+  background:var(--primary);color:black;
+  border-radius:6px;text-decoration:none
+}
+
+/* Sections */
+section{padding:80px 40px;text-align:center}
+h2{color:var(--primary);margin-bottom:20px}
+
+/* Neon Flicker */
+@keyframes flicker{
+  0%,100%{box-shadow:0 0 20px var(--primary)}
+  50%{box-shadow:0 0 50px var(--primary)}
+}
+
+/* Skills */
+.skills-box{
+  max-width:700px;margin:auto;
+  border:2px solid var(--primary);
+  padding:25px;border-radius:14px;
+  animation:flicker 2.5s infinite;
+  display:flex;flex-wrap:wrap;
+  justify-content:center;gap:15px
+}
+.skills-box span{
+  background:#1a1a1f;
+  padding:10px 18px;
+  border-radius:6px;
+  transition:.3s
+}
+.skills-box span:hover{
+  background:var(--primary);
+  color:black;
+  box-shadow:0 0 20px var(--primary);
+  transform:scale(1.1)
+}
+
+/* Flip cards */
+.projects{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.flip{
+  width:200px;height:150px;perspective:1000px
+}
+.inner{
+  width:100%;height:100%;
+  transition:transform .6s;
+  transform-style:preserve-3d
+}
+.flip:hover .inner{transform:rotateY(180deg)}
+.front,.back{
+  position:absolute;width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:10px;backface-visibility:hidden
+}
+.front{background:#111;border:1px solid #333}
+.back{
+  background:var(--primary);
+  color:black;transform:rotateY(180deg)
+}
+
+/* Footer */
+footer{padding:20px;background:#111}
+
+/* Cursor */
+.cursor-dot,.cursor-outline{
+  position:fixed;pointer-events:none;border-radius:50%
+}
+.cursor-dot{
+  width:8px;height:8px;background:var(--primary);z-index:999
+}
+.cursor-outline{
+  width:30px;height:30px;border:2px solid var(--primary);
+  opacity:.5;transition:.1s
+}
+
+/* Particles */
+canvas{
+  position:fixed;top:0;left:0;
+  width:100%;height:100%;z-index:-1
+}
+</style>
+</head>
+
+<body>
+
+<div id="progress"></div>
+<canvas id="canvas"></canvas>
+
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+
+<header>
+  <div class="logo">GCR.dev</div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Hi, I'm <span>Gudati Chaitanya Reddy</span></h2>
+  <h3 id="typing"></h3>
+  <a class="btn">Download Resume</a>
+</section>
+
+<section id="about">
+  <h2>About</h2>
+  <p>As an aspiring Artificial Intelligence and Machine Learning (AIML) professional, I am deeply passionate about developing intelligent systems that solve real-world problems through data-driven insights. My academic background has provided me with a strong foundation in machine learning algorithms, data preprocessing, deep learning, and model evaluation techniques. I have hands-on experience working on projects involving predictive analytics, natural language processing, and computer vision, using tools such as Python, TensorFlow, scikit-learn, and PyTorch. I am committed to continuous learning and innovation, with a keen interest in building scalable, ethical, and impactful AI solutions.</p>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-box">
+    <span><i class="devicon-python-plain"></i> Python</span>
+    <span><i class="devicon-javascript-plain"></i> JavaScript</span>
+    <span><i class="devicon-nodejs-plain"></i> Node.js</span>
+    <span><i class="devicon-html5-plain"></i> HTML</span>
+    <span><i class="devicon-css3-plain"></i> CSS</span>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="flip">
+      <div class="inner">
+        <div class="front">AI Cursor</div>
+        <div class="back">Python</div>
+      </div>
+    </div>
+    <div class="flip">
+      <div class="inner">
+        <div class="front">Voice Assistant</div>
+        <div class="back">Python + HTML</div>
+      </div>
+    </div>
+    <div class="flip">
+      <div class="inner">
+        <div class="front">Cheat Detector</div>
+        <div class="back">Python + Node</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: chaithu6313@gmail.com</p>
+  <p>GitHub: chaithu6313</p>
+  <p>LinkedIn: Chaitanya Reddy</p>
+</section>
+
+<footer>© 2025 Gudati Chaitanya Reddy</footer>
+
+<script>
+/* Typing */
+const texts=["CSE AIML Student","Building Intelligent Systems","Future AI Engineer 🚀"];
+let i=0,j=0;
+const t=document.getElementById("typing");
+function type(){
+  if(j<texts[i].length){t.innerHTML+=texts[i][j++];setTimeout(type,80)}
+  else setTimeout(erase,1200)
+}
+function erase(){
+  if(j>0){t.innerHTML=texts[i].substring(0,--j);setTimeout(erase,50)}
+  else{i=(i+1)%texts.length;setTimeout(type,400)}
+}
+type();
+
+/* Scroll progress */
+window.addEventListener("scroll",()=>{
+  document.getElementById("progress").style.width=
+  (scrollY/(document.body.scrollHeight-innerHeight))*100+"%"
+});
+
+/* Cursor */
+const dot=document.querySelector(".cursor-dot");
+const outline=document.querySelector(".cursor-outline");
+document.addEventListener("mousemove",e=>{
+  dot.style.left=e.clientX+"px";dot.style.top=e.clientY+"px";
+  outline.style.left=e.clientX+"px";outline.style.top=e.clientY+"px";
+});
+
+/* Particles */
+const c=document.getElementById("canvas"),x=c.getContext("2d");
+c.width=innerWidth;c.height=innerHeight;
+let p=[];
+for(let i=0;i<80;i++)
+  p.push({x:Math.random()*c.width,y:Math.random()*c.height,
+  r:Math.random()*4+1,dx:Math.random()-.5,dy:Math.random()-.5});
+function anim(){
+  x.clearRect(0,0,c.width,c.height);
+  p.forEach(o=>{
+    x.beginPath();x.arc(o.x,o.y,o.r,0,Math.PI*2);
+    x.fillStyle="rgba(160,32,240,.8)";
+    x.fill();o.x+=o.dx;o.y+=o.dy
+  });
+  requestAnimationFrame(anim)
+}
+anim();
+</script>
+
+</body>
+</html>
